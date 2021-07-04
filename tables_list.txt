@@ -1,0 +1,2 @@
+table_name:to_be_loaded
+bikewise:yes
