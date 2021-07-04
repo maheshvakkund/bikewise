@@ -19,8 +19,11 @@ def write_data(db_details):
 
 def save_data(connection, columns_names, values, dataframes):
     cursor = connection.cursor()
+    dataframes=dataframes.values.tolist()
+    batch_size = 500
     query = f"INSERT INTO `bikewise_data` ({columns_names}) VALUES({values})"
-    cursor.executemany(query, dataframes.values.tolist())
-    connection.commit()
+    for i in range(0, len(dataframes), batch_size):
+        cursor.executemany(query, dataframes[i:i + batch_size])
+        connection.commit()
     connection.close()
-
+    cursor.close()
