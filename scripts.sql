@@ -1,3 +1,4 @@
+--SCRIPTS AS PER MYSQL NEEDS TO BE CHANGED
 CREATE DATABASE IF NOT EXISTS `bikewise_db`;
 CREATE TABLE `bikewise_data` (
   `id` bigint NOT NULL,
